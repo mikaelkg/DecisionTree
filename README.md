@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/mikaelkg/AVLTree.svg?branch=master)](https://travis-ci.org/mikaelkg/AVLTree)
 # AVLTree
 Целью данного проекта является разработка программы для работы с двоичным деревом поиска (далее будем называть просто деревом) со следующим TUI:
-###Select one of the following operations::
+### Select one of the following operations::
 1. Display the tree on the screen
 2. List the nodes of the tree
    a. Direct Bypass
