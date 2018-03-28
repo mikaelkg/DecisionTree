@@ -8,7 +8,7 @@ option(BUILD_TESTS "Build tests" OFF)
 
 project(tree)
 
-add_library(tree STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/tree.cpp)
+add_library(tree STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/Tree.cpp)
 
 target_include_directories(tree PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

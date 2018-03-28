@@ -1,12 +1,12 @@
+/* Copyright 2018 Khachatryan M. G., Chepic P. I. */
 #include "catch.hpp"
-#include <tree.hpp>
-
-TEST_CASE("The nodes were recorded correctly", "[file]") {
-  int argc=4;
-  vector <int> nodes= {1,2,3};
-  AVLTree::TREE* obj=new AVLTree::TREE(argc-1,nodes);
-
-  REQUIRE(obj->root->data == 1);
-  REQUIRE(obj->root->right->data == 2);
-  REQUIRE(obj->root->right->right->data == 3);
+#include "Tree.hpp"
+using namespace BSTTree;
+TEST_CASE("Extra nodes must be removed", "[file]") {
+  std::vector <int> nodes= {1, 2, 2, 3, 1};
+  nodes = TUI::preprocessing(nodes);
+  REQUIRE(nodes.size() == 3);
+  REQUIRE(nodes[0] == 1);
+  REQUIRE(nodes[1] == 2);
+  REQUIRE(nodes[2] == 3);
 }
