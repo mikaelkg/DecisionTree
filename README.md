@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mikaelkg/BSTTree.svg?branch=master)](https://travis-ci.org/mikaelkg/BSTTree)
+[![Build Status](https://travis-ci.org/mikaelkg/BSTTree.svg?branch=develop)](https://travis-ci.org/mikaelkg/BSTTree)
 # BSTTree
 Целью данного проекта является разработка программы для работы с двоичным деревом поиска (далее будем называть просто деревом) со следующим TUI:
 ### Select one of the following operations::
