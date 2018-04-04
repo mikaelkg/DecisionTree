@@ -20,13 +20,19 @@ class Tree {
     explicit Tree(std::vector <int> nodes);
     void create_tree(std::vector <int> nodes);
     void output_tree(Node* root);
+    void pre_order(Node* root);
+    void in_order(Node* root);
+    void post_order(Node* root);
+
 };
 
 class TUI {
  public:
+    enum class traversal_order {pre, in, post, wrong};
     static int choose_operation();
     static std::vector <int> preprocessing(std::vector <int> nodes);
     static bool check_nodes(std::vector <int> nodes);
+    static traversal_order sub_choose();
 };
 }  // namespace BSTTree
 

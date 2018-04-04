@@ -52,6 +52,32 @@ void Tree::output_tree(Node* root) {
     output_tree(root->left);
 };
 
+void Tree::pre_order(Node* root) {
+    if (root == 0)    return;
+
+    std::cout << root->data << " ";
+    pre_order(root->left);
+    pre_order(root->right);
+};
+
+void Tree::in_order(Node* root) {
+    if (root == 0)    return;
+
+
+    in_order(root->left);
+    std::cout << root->data << " ";
+    in_order(root->right);
+};
+
+void Tree::post_order(Node* root) {
+    if (root == 0)    return;
+
+
+    in_order(root->left);
+    in_order(root->right);
+    std::cout << root->data << " ";
+};
+
 bool TUI::check_nodes(std::vector <int> nodes) {
     for (auto i : nodes) {
         if (i == 0) {
@@ -92,5 +118,29 @@ int TUI::choose_operation() {
     std::cin >> choice;
     return choice;
 }
+
+TUI::traversal_order TUI::sub_choose() {
+    char choice;
+    std::cout\
+            <<"a. Direct bypass\n"\
+            <<"b. Transversal bypass\n"\
+            <<"c. Reverse bypass\n";
+    std::cin >> choice;
+    switch (choice) {
+        case 'a': {
+            return TUI::traversal_order::pre;
+        }
+        case 'b': {
+            return traversal_order::in;
+        }
+        case 'c': {
+            return traversal_order::post;
+        }
+        default: {
+            return traversal_order::wrong;
+        }
+    }
+}
+
 }  // namespace BSTTree
 
