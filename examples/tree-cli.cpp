@@ -6,7 +6,6 @@ int main(int argc, char* argv[]) {
     for (int i = 1; i < argc; i++) {
         nodes.push_back(atoi(argv[i]));
     }
-    nodes = {3, 2, 1, 4, 5};
     if (TUI::check_nodes(nodes) == false) {
         std::cout << "Some nodes are not valid!\n";
         return 0;
@@ -23,7 +22,7 @@ int main(int argc, char* argv[]) {
                         std::cout << "Tree is empty!\n";
                         return 0;
                 } else {
-                    obj->output_tree(obj->root);
+                    obj->output_tree(obj->root,0);
                 }
                 break;
             }
@@ -56,6 +55,42 @@ int main(int argc, char* argv[]) {
                 }
                 }
                 break;
+            }
+            case 3: {
+                int value;
+                std::cout << "Enter a value for the new node: ";
+                std::cin >> value;
+                if (value == 0) {
+                    std::cout << "Wrong value!\n";
+                    return 0;
+                } else if (TUI::exist_node(obj->root,value)) {
+                    std::cout << "The node already exists in the tree\n";
+                    break;
+
+                } else {
+                    obj->root = insert_Node(obj->root, value);
+                    break;
+                }
+
+
+            }
+            case 8: {
+                std::string choice;
+                std::cout << "Are you sure you want to quit ? (Yes|No)\n";
+                std::cin >> choice;
+                if (choice == "Yes") {
+                    delete obj;
+                    return 0;
+
+                } else if (choice == "No") {
+                    break;
+
+                } else {
+                    std::cout << "Wrong option!\n";
+                    return 0;
+                }
+
+
             }
                 default: {
                     std::cout << "Wrong option!\n";
