@@ -1,17 +1,14 @@
 /* Copyright 2018 Khachatryan M. G., Chepic P. I. */
 #include "Tree.hpp"
+#include "Tui.hpp"
 using namespace BSTTree;
 int main(int argc, char* argv[]) {
-    std::vector <int> nodes;
-    for (int i = 1; i < argc; i++) {
-        nodes.push_back(atoi(argv[i]));
-    }
+
+    auto nodes = TUI::preprocessing(argc, argv);
     if (TUI::check_nodes(nodes) == false) {
         std::cout << "Some nodes are not valid!\n";
         return 0;
     }
-    nodes = TUI::preprocessing(nodes);
-
     Tree* obj = new Tree(nodes);
 
     while (true) {
@@ -31,28 +28,8 @@ int main(int argc, char* argv[]) {
                         std::cout << "Tree is empty!\n";
                         return 0;
                 } else {
-                auto choice = TUI::sub_choose();
-                switch (choice) {
-                    case TUI::traversal_order::pre: {
-                        obj->pre_order(obj->root);
-                        std::cout << std::endl;
-                        break;
-                    }
-                    case TUI::traversal_order::in: {
-                        obj->in_order(obj->root);
-                        std::cout << std::endl;
-                        break;
-                    }
-                    case TUI::traversal_order::post: {
-                        obj->post_order(obj->root);
-                        std::cout << std::endl;
-                        break;
-                    }
-                    default: {
-                        std::cout << "Wrong option!\n";
-                        return 0;
-                    }
-                }
+                    auto choice = TUI::sub_choose();
+                    obj->print(choice);
                 }
                 break;
             }
@@ -63,7 +40,7 @@ int main(int argc, char* argv[]) {
                 if (value == 0) {
                     std::cout << "Wrong value!\n";
                     return 0;
-                } else if (TUI::exist_node(obj->root,value)) {
+                } else if (obj->exist_node(obj->root,value)) {
                     std::cout << "The node already exists in the tree\n";
                     break;
 
@@ -71,8 +48,69 @@ int main(int argc, char* argv[]) {
                     obj->root = insert_Node(obj->root, value);
                     break;
                 }
-
-
+            }
+            case 4: {
+                int value;
+                std::cout << "Enter the node to delete: ";
+                std::cin >> value;
+                if (value == 0) {
+                    std::cout << "Wrong value!\n";
+                    return 0;
+                } else {
+                    obj->root = obj->remove_Node(obj->root, value);
+                    break;
+                }
+            }
+            case 5: {
+                std::string path;
+                std::cout << "Enter the path to the file: ";
+                std::cin >> path;
+                if (obj->exist_file(path)) {
+                    std::string choice;
+                    std::cout << "The file already exists, overwrite ? (Yes|No)\n";
+                    std::cin >> choice;
+                    if (choice == "Yes") {
+                        obj->write_file(path);
+                        break;
+                    } else if (choice == "No") {
+                        break;
+                    } else {
+                        std::cout << "Wrong option!\n";
+                        return 0;
+                    }
+                } else {
+                        obj->write_file(path);
+                        break;
+                }
+            }
+            case 6: {
+                std::string path;
+                std::cout << "Enter the path to the file: ";
+                std::cin >> path;
+                if (obj->exist_file(path)) {
+                    obj->read_file(path);
+                    break;
+                } else {
+                        std::cout << "The file with the specified path does not exist!\n";
+                        return 0;
+                }
+            }
+            case 7: {
+                int value;
+                std::cout << "Enter the value for search: ";
+                std::cin >> value;
+                if (value == 0) {
+                    std::cout << "Wrong option!\n";
+                    return 0;
+                } else {
+                        if (obj->exist_node(obj->root, value)) {
+                            std::cout << "Node is found!\n";
+                            break;
+                        } else {
+                            std::cout << "Node is not found!\n";
+                            break;
+                        }
+                }
             }
             case 8: {
                 std::string choice;
@@ -81,16 +119,12 @@ int main(int argc, char* argv[]) {
                 if (choice == "Yes") {
                     delete obj;
                     return 0;
-
                 } else if (choice == "No") {
                     break;
-
                 } else {
                     std::cout << "Wrong option!\n";
                     return 0;
                 }
-
-
             }
                 default: {
                     std::cout << "Wrong option!\n";

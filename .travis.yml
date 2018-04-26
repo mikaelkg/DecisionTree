@@ -1,10 +1,10 @@
 language: cpp
 
 script:
-- cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON
+- cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Coverage
 - cmake --build _build
 - cmake --build _build --target install
-- cmake --build _build --target test -- ARGS=--verbose
+- cmake --build _build --target unit_tests_coverage 
 
 addons:
   apt:

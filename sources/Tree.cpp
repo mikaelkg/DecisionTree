@@ -17,6 +17,12 @@ Node* insert_Node(Node* root, int value) {
 
     return root;
 };
+Node* min_Node(Node* root) {
+    if ( root->left == 0 ) {
+        return root;
+    }
+    return min_Node(root->left);
+}
 
 Tree::Tree(std::vector <int> nodes) {
     create_tree(nodes);
@@ -50,7 +56,12 @@ void Tree::pre_order(Node* root) {
     pre_order(root->left);
     pre_order(root->right);
 };
-
+void Tree::pre_order(Node* root, std::ofstream& out) {
+    if (root == 0)    return;
+    out << root->data << " ";
+    pre_order(root->left, out);
+    pre_order(root->right, out);
+};
 void Tree::in_order(Node* root) {
     if (root == 0)    return;
 
@@ -73,86 +84,60 @@ Tree::~Tree() {
 }
 void Tree::cleanup (Node* root) {
     if(root == 0) return;
-
-    if(root->left) {
+    if(root->left != 0) {
         cleanup(root->left);
         root->left = 0;
-
     }
-
     if(root->right != 0 ) {
         cleanup(root->right);
         root->right = 0;
-
     }
-
     delete root;
-
   }
-bool TUI::check_nodes(std::vector <int> nodes) {
-    for (auto i : nodes) {
-        if (i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-std::vector <int> TUI::preprocessing(std::vector <int> nodes) {
-    std::vector <int> set_nodes;
-    for (int i = 0; i < nodes.size(); i++) {
-        int flag = 0;
-        for (int j = 0; j < set_nodes.size(); j++) {
-            if (nodes[i] == set_nodes[j]) {
-                flag = 1;
+Node* Tree::remove_Node(Node* root, int value) {
+    if (root == 0) return root;
+    if (value < root->data) {
+        root->left = remove_Node(root->left, value);
+    } else if (value > root->data) {
+        root->right = remove_Node(root->right, value);
+    } else if (value == root->data) {
+        if (root->left != 0 && root->right != 0) {
+            root->data = min_Node(root->right)->data;
+            root->right = remove_Node(root->right, root->data);
+        } else {
+            if (root->left != 0) {
+                root = root->left;
+            } else {
+                root = root->right;
             }
         }
-        if (flag == 0) {
-            set_nodes.push_back(nodes[i]);
-        }
     }
-    return set_nodes;
+    return root;
 }
-
-int TUI::choose_operation() {
-    int choice;
-    std::cout\
-            <<"Select one of the following operations::\n"\
-            <<"1. Display the tree on the screen\n"\
-            <<"2. List the nodes of the tree\n"\
-            <<"3. Add node to tree\n"\
-            <<"4. Delete a node from a tree\n"\
-            <<"5. Save the tree to a file\n"\
-            <<"6. Load tree from file\n"\
-            <<"7. Check the availability of the node\n"\
-            <<"8. Quit the program\n";
-
-    std::cin >> choice;
-    return choice;
-}
-
-TUI::traversal_order TUI::sub_choose() {
-    char choice;
-    std::cout\
-            <<"a. Direct bypass\n"\
-            <<"b. Transversal bypass\n"\
-            <<"c. Reverse bypass\n";
-    std::cin >> choice;
-    switch (choice) {
-        case 'a': {
-            return TUI::traversal_order::pre;
+void Tree::print(traversal_order order) {
+    switch (order) {
+        case traversal_order::pre: {
+            this->pre_order(this->root);
+            std::cout << std::endl;
+            break;
         }
-        case 'b': {
-            return traversal_order::in;
+        case traversal_order::in: {
+            this->in_order(this->root);
+            std::cout << std::endl;
+            break;
         }
-        case 'c': {
-            return traversal_order::post;
+        case traversal_order::post: {
+            this->post_order(this->root);
+            std::cout << std::endl;
+            break;
         }
         default: {
-            return traversal_order::wrong;
+            std::cout << "Wrong option!\n";
+            exit(0);
         }
     }
 }
-bool TUI::exist_node(Node* root, int value) {
+bool Tree::exist_node(Node* root, int value) {
     if ( root == 0) {
         return false;
     } else if (value < root->data) {
@@ -164,6 +149,33 @@ bool TUI::exist_node(Node* root, int value) {
     }
 
     return root;
+}
+bool Tree::exist_file(std::string path) {
+    std::ifstream file(path);
+    if (file.is_open()) {
+        file.close();
+        return true;
+    } else {
+        file.close();
+        return false;
+    }
+}
+void Tree::write_file(std::string path) {
+    std::ofstream file(path);
+    this->pre_order(this->root, file);
+    file.close();
+    std::cout << "The tree is successfully written!\n";
+}
+void Tree::read_file(std::string path) {
+    std::ifstream file(path);
+    int val;
+    this->cleanup(this->root);
+    this->root = 0;
+    while (file >> val) {
+        this->root = insert_Node(this->root, val);
+    }
+    file.close();
+    std::cout << "The tree was successfully loaded\n";
 }
 }  // namespace BSTTree
 
