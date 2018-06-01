@@ -67,5 +67,15 @@ traversal_order TUI::sub_choose() {
         }
     }
 }
+bool TUI::exist_file(std::string path) {
+    std::ifstream file(path);
+    if (file.is_open()) {
+        file.close();
+        return true;
+    } else {
+        file.close();
+        return false;
+    }
+}
 
 } // namespace BSTTree

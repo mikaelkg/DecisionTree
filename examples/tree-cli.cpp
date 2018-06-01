@@ -10,21 +10,15 @@ int main(int argc, char* argv[]) {
         return 0;
     }
     Tree* obj = new Tree(nodes);
-
     while (true) {
         auto choice = TUI::choose_operation();
         switch (choice) {
             case 1: {
-                if (obj->root == 0) {
-                        std::cout << "Tree is empty!\n";
-                        return 0;
-                } else {
-                    obj->output_tree(obj->root,0);
-                }
+                std::cout<<*obj;
                 break;
             }
             case 2: {
-                if (obj->root == 0) {
+                if (obj->empty()) {
                         std::cout << "Tree is empty!\n";
                         return 0;
                 } else {
@@ -40,12 +34,12 @@ int main(int argc, char* argv[]) {
                 if (value == 0) {
                     std::cout << "Wrong value!\n";
                     return 0;
-                } else if (obj->exist_node(obj->root,value)) {
+                } else if (obj->exists(value)) {
                     std::cout << "The node already exists in the tree\n";
                     break;
 
                 } else {
-                    obj->root = insert_Node(obj->root, value);
+                    obj->insert(value);
                     break;
                 }
             }
@@ -57,7 +51,7 @@ int main(int argc, char* argv[]) {
                     std::cout << "Wrong value!\n";
                     return 0;
                 } else {
-                    obj->root = obj->remove_Node(obj->root, value);
+                    obj->remove(value);
                     break;
                 }
             }
@@ -65,12 +59,12 @@ int main(int argc, char* argv[]) {
                 std::string path;
                 std::cout << "Enter the path to the file: ";
                 std::cin >> path;
-                if (obj->exist_file(path)) {
+                if (TUI::exist_file(path)) {
                     std::string choice;
                     std::cout << "The file already exists, overwrite ? (Yes|No)\n";
                     std::cin >> choice;
                     if (choice == "Yes") {
-                        obj->write_file(path);
+                        obj->save(path);
                         break;
                     } else if (choice == "No") {
                         break;
@@ -79,7 +73,7 @@ int main(int argc, char* argv[]) {
                         return 0;
                     }
                 } else {
-                        obj->write_file(path);
+                        obj->save(path);
                         break;
                 }
             }
@@ -87,8 +81,8 @@ int main(int argc, char* argv[]) {
                 std::string path;
                 std::cout << "Enter the path to the file: ";
                 std::cin >> path;
-                if (obj->exist_file(path)) {
-                    obj->read_file(path);
+                if (TUI::exist_file(path)) {
+                    obj->load(path);
                     break;
                 } else {
                         std::cout << "The file with the specified path does not exist!\n";
@@ -103,7 +97,7 @@ int main(int argc, char* argv[]) {
                     std::cout << "Wrong option!\n";
                     return 0;
                 } else {
-                        if (obj->exist_node(obj->root, value)) {
+                        if (obj->exists(value)) {
                             std::cout << "Node is found!\n";
                             break;
                         } else {
@@ -132,6 +126,7 @@ int main(int argc, char* argv[]) {
                 }
         }
     }
+
     return 0;
 }
 

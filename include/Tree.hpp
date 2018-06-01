@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-
+#include <stack>
 namespace BSTTree {
 struct Node {
     int data;
@@ -12,30 +12,38 @@ struct Node {
     Node* right;
     explicit Node(int value);
 };
-Node* insert_Node(Node* root, int value);
+
 Node* min_Node(Node* root);
 
 enum class traversal_order {pre, in, post, wrong};
 class Tree {
  public:
-    int choice;
-    Node* root = 0;
+    Tree();
+    explicit Tree(std::initializer_list <int> list);
+    explicit Tree(const Tree& tree);
+    explicit Tree(Tree&& tree);
     explicit Tree(std::vector <int> nodes);
-    void create_tree(std::vector <int> nodes);
-    void output_tree(Node* root, int count_spaces);
+    bool remove(int value);
+    bool insert(int value);
+    bool empty();
+    void print(traversal_order order);
+    bool exists(int value);
+    void load(std::string path);
+    void save(std::string path);
+    auto operator=(const Tree& tree)->Tree&;
+    auto operator=(Tree&& tree)->Tree&;
+    auto friend operator<<(std::ostream& stream, const Tree&) -> std::ostream&;
+    ~Tree();
+ private:
+    Node* root;
+    void cleanup(Node* root);
     void pre_order(Node* root);
     void pre_order(Node* root, std::ofstream& out);
+    void pre_order(Node* root, Tree* tree_copy);
     void in_order(Node* root);
     void post_order(Node* root);
-    void print(traversal_order order);
-    bool exist_node(Node* root, int value);
-    bool exist_file(std::string path);
-    void write_file(std::string path);
-    void read_file(std::string path);
-    void cleanup(Node* root);
-
-    Node* remove_Node(Node* root, int value);
-    ~Tree();
+    bool asistant_exists (Node* root, int value);
+    Node* assistant_remove(Node* root, int value);
 };
 
 }  // namespace BSTTree

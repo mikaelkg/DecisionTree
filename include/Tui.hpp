@@ -11,6 +11,7 @@ class TUI {
     static std::vector <int> preprocessing(int argc, char* argv[]);
     static bool check_nodes(std::vector <int> nodes);
     static traversal_order sub_choose();
+    static bool exist_file(std::string path);
 };
 }  // namespace BSTTree
 #endif // INCLUDE_TUI_H_
