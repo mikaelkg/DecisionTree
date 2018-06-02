@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/mikaelkg/BSTTree.svg?branch=develop)](https://travis-ci.org/mikaelkg/BSTTree)
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/mikaelkg/BSTTree)](https://ci.appveyor.com/api/projects/status/github/mikaelkg/BSTree) 
 # BSTTree
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/mikaelkg/BSTTree)](https://ci.appveyor.com/api/projects/status/github/mikaelkg/BSTree)
 Целью данного проекта является разработка программы для работы с двоичным деревом поиска (далее будем называть просто деревом) со следующим TUI:
 ### Select one of the following operations::
 1. Display the tree on the screen
