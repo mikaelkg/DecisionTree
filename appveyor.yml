@@ -4,7 +4,7 @@ image:
   - Ubuntu
   
 install:
-  - sudo apt install lcov
+  - sudo apt -y install lcov
 
 before_build:
   - cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Coverage -DCPACK_GENERATOR="TGZ"
