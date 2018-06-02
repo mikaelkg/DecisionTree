@@ -5,7 +5,7 @@ script:
 - cmake --build _build
 - cmake --build _build --target install
 - cmake --build _build --target unit_tests_coverage 
-
+- cmake --build _build --target package
 addons:
   apt:
     sources:
