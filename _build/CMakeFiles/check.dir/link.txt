@@ -1,1 +1,0 @@
-/usr/bin/c++   -g -O0 -Wall -fprofile-arcs -ftest-coverage -g -O0 --coverage -fprofile-arcs -ftest-coverage   CMakeFiles/check.dir/tests/main.cpp.o CMakeFiles/check.dir/tests/test1.cpp.o  -o check -rdynamic libdectree.a libtui.a 

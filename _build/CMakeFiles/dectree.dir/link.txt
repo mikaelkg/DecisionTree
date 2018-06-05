@@ -1,2 +1,0 @@
-/usr/bin/ar qc libdectree.a  CMakeFiles/dectree.dir/sources/Tree.cpp.o
-/usr/bin/ranlib libdectree.a
