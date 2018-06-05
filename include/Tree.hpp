@@ -1,77 +1,100 @@
-/* Copyright 2018 Khachatryan M. G., Chepic P. I.*/
-#ifndef INCLUDE_TREE_H_
-#define INCLUDE_TREE_H_
-#include <iostream>
+/* Copyright 2018 Khachatryan M. G., Chepic P. I. */
+#ifndef DECISIONTREE_H
+#define DECISIONTREE_H
+#define FMT_HEADER_ONLY
 #include <vector>
+#include <algorithm>
+#include <iostream>
+#include <set>
+#include <map>
 #include <fstream>
-#include <stack>
-namespace BSTTree {
+#include <fmt/format.h>
+#include <string>
+#include <stdio.h>
+#include <random>
+#include <stdlib.h>
+
+namespace DecTree {
 struct Node {
-    int data;
+    std::vector <std::vector <double>> X;
+    std::vector <int> Y;
+    std::vector <int> values;
+    double threshold = -1000;
+    int feature_choose = -1;
+    double gini;
+    std::string class_;
     Node* left;
     Node* right;
-    explicit Node(int value);
+
+    Node(std::vector <std::vector <double>> features,std::vector <int> classes,
+         int count_classes, std::map <int,std::string> reverse_dict);
+    std::vector <int> count_in_class(std::vector <int> classes,int count_classes);
+    double gini_index(std::vector <int> values);
+
+    Node(Node* root);
+
 };
 
-Node* min_Node(Node* root);
+class DecisionTree
+{
+    public:
+	//!Стандартный конструктор
+        DecisionTree();
+	//!Конструктор копирования
+        explicit DecisionTree(const DecisionTree& tree);
+	//!Конструктор перемещения
+        explicit DecisionTree(DecisionTree&& tree);
+	//!Метод для определения, пустое ли дерево
+        bool empty();
+	//!Обучение дерева
+        void fit(std::vector <std::vector <double>> features,std::vector <std::string> classes);
+	//!Визуализация дерева
+        void visualiseTree(std::string path);
+	//!Определить класс объектов по вектору признаков
+        std::vector <std::string> predict(std::vector <std::vector <double>> features);
+	//!Определить точность работы
+        static double accuracy(std::vector <std::string> real_class,std::vector <std::string> predicted_class);
+	//!Разлелить данные на тестовые и тренировочные подвыборки
+        static void splitData(std::vector <std::vector <double>> &features,
+                              std::vector <std::string> &classes,
+                              std::vector <std::vector <double>> &train_X,
+                              std::vector <std::string> &trainY,
+                              std::vector <std::vector <double>> &test_X,
+                              std::vector <std::string> &test_Y,int percent_train);
+	//!Оператор присваивания для копирования
+        auto operator=(const DecisionTree& tree)->DecisionTree&;
+	//!Оператор присваивани для перемещения
+        auto operator=(DecisionTree&& tree)->DecisionTree&;
+	//!Деструктор
+        ~DecisionTree();
 
-enum class traversal_order {pre, in, post, wrong};
-class Tree {
- public:
-    //!Конструктор пустого дерева
-    Tree();
-    //!Конструктор списка инициализации
-    explicit Tree(std::initializer_list <int> list);
-    //!Конструктор копирования
-    explicit Tree(const Tree& tree);
-    //!Конструктор перемещения
-    explicit Tree(Tree&& tree);
-    //!Конструктор для вектора
-    explicit Tree(std::vector <int> nodes);
-    //!Удаление узла
-    bool remove(int value);
-    //!Вставка узла
-    bool insert(int value);
-    //!Проверка на то, пустое ли дерево
-    bool empty();
-    //!Вывести дереов с определенным обходом
-    void print(traversal_order order);
-    //!Проверить существование узла
-    bool exists(int value);
-    //!Загрузить дерево из файла
-    void load(std::string path);
-    //!Сохранить дерево в файл
-    void save(std::string path);
-    //!Перегруженный оператор присваивания копирования
-    auto operator=(const Tree& tree)->Tree&;
-    //!Перегруженный оператор присваивания перемещения
-    auto operator=(Tree&& tree)->Tree&;
-    //!Перегруженный оператор вывода
-    auto friend operator<<(std::ostream& stream, const Tree&) -> std::ostream&;
-    //!Деструктор
-    ~Tree();
- private:
-    //!Корень дерева
-    Node* root;
-    //!Вспомогательная функция для деструктора
-    void cleanup(Node* root);
-    //!Фнукция для вывода дерева прямым обходом
-    void pre_order(Node* root);
-    //!Функция для записи дерева прямым обходом в файл
-    void pre_order(Node* root, std::ofstream& out);
-    //!Функция для копирования дерева прямым обходом
-    void pre_order(Node* root, Tree* tree_copy);
-    //!Функция для вывода дерева поеречным обходом
-    void in_order(Node* root);
-    //!Функция для вывода дерева обратным обходом
-    void post_order(Node* root);
-    //!Вспомогательная функция для функции exists
-    bool asistant_exists (Node* root, int value);
-    //!Вспомогательная функция для функции remove
-    Node* assistant_remove(Node* root, int value);
+    private:
+	//!Количество классов участвоваших в обучении
+        int count_classes;
+	//!Количество признаков у каждого объекта
+        int count_features;
+	//!Словарь для перевода из чисел обратно в названия классов
+        std::map <int,std::string> reverse_dict;
+	//!Корень дерева
+        Node* root = 0;
+	//!Вспомогательная функция для predict
+        std::string helpPredict(Node* root, std::vector <double> feature);
+	//!Разделение узлов по наиболее эффективному порогу
+        void splitNode(Node* root);
+	//!Вычислить индекс gini при конкретном пороге
+        std::pair <double,bool> splitGiniIndex(std::vector <std::vector <double>> features,
+                                       std::vector <int> classes, int feature_choose,
+                                       double threashold);
+	//!Вычислить порог при котором индекс gini минимален
+        std::map <std::string, double> minsplitGiniIndex(std::vector <std::vector <double>> features,
+                               std::vector <int> classes, int feature_choose);
+	//!Вспомогательная функция для визуализации
+        std::string helpVisuliseTree(Node* root);
+	//!Функция для очистки дерева
+        void cleanup(Node* root);
+	//!Прямой обход дерева (нужен только для оператора копирования)
+        void pre_order(Node* root, Node* &root_copy);
 };
-
-}  // namespace BSTTree
-
-#endif  // INCLUDE_TREE_H_
+} // namespace DecTree
+#endif // DECISIONTREE_H
 

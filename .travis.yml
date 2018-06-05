@@ -14,3 +14,4 @@ addons:
       - cmake
       - cmake-data
       - lcov
+      - graphviz
