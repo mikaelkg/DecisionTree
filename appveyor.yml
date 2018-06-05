@@ -1,0 +1,20 @@
+version: 1.0.{build}
+
+image: 
+  - Ubuntu
+  
+install:
+  - sudo apt -y install lcov
+
+before_build:
+  - cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Coverage -DCPACK_GENERATOR="TGZ"
+ 
+build_script:
+  - cmake --build _build
+  - cmake --build _build --target install
+  
+after_build:
+  - cmake --build _build --target package
+
+test_script:
+  - cmake --build _build --target unit_tests_coverage
