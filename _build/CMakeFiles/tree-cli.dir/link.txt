@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -O0 -Wall -fprofile-arcs -ftest-coverage -g -O0 --coverage -fprofile-arcs -ftest-coverage   CMakeFiles/tree-cli.dir/examples/tree-cli.cpp.o  -o tree-cli -rdynamic libdectree.a libtui.a 

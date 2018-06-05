@@ -1,0 +1,15 @@
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/test.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/package.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/edit_cache.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/rebuild_cache.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/check.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/tree-cli.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/package_source.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/tui.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/dectree.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/unit_tests_coverage.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/unit_tests.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/install/local.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/install.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/install/strip.dir
+/home/mikael/mikaelkg/workspace/projects/DecisionTree/_build/CMakeFiles/list_install_components.dir
