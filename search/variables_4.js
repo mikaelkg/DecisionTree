@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['reverse_5fdict',['reverse_dict',['../classDecTree_1_1DecisionTree.html#a2d4fc1574de5a35626acc663ed24a051',1,'DecTree::DecisionTree']]],
-  ['right',['right',['../structDecTree_1_1Node.html#acd9c0a5ba1ad134f9063baf8975562b7',1,'DecTree::Node']]],
-  ['root',['root',['../classDecTree_1_1DecisionTree.html#acfed44a8d4ffb2dcdd6ec19783d48722',1,'DecTree::DecisionTree']]]
+  ['reverse_5fdict',['reverse_dict',['../classDecisionTree_1_1DecTree.html#a70d988b7022b5c23ca8deb8a2e95351a',1,'DecisionTree::DecTree']]],
+  ['right',['right',['../structDecisionTree_1_1Node.html#a1171ba0ee2ba7630c186801354e2dc71',1,'DecisionTree::Node']]],
+  ['root',['root',['../classDecisionTree_1_1DecTree.html#ade416e5ff8eace185661cd6f3cc10750',1,'DecisionTree::DecTree']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['decisiontree',['DecisionTree',['../classDecTree_1_1DecisionTree.html',1,'DecTree']]]
+  ['dectree',['DecTree',['../classDecisionTree_1_1DecTree.html',1,'DecisionTree']]]
 ];

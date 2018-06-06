@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['values',['values',['../structDecTree_1_1Node.html#a72d1474ab7da4cb0b2119d618b53281a',1,'DecTree::Node']]],
-  ['visualisetree',['visualiseTree',['../classDecTree_1_1DecisionTree.html#ac6a81e612593c3053ad235d8bd6d172e',1,'DecTree::DecisionTree']]]
+  ['values',['values',['../structDecisionTree_1_1Node.html#a8cc3f1ac27c999af72fc1cc6472828ac',1,'DecisionTree::Node']]],
+  ['visualisetree',['visualiseTree',['../classDecisionTree_1_1DecTree.html#a0179f3aac28148d021648161d6ed37f9',1,'DecisionTree::DecTree']]]
 ];

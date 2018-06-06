@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['decisiontree',['DecisionTree',['../classDecTree_1_1DecisionTree.html',1,'DecTree']]],
-  ['decisiontree',['DecisionTree',['../classDecTree_1_1DecisionTree.html#a29bf27e190e26aee5235e02ff6fa71ec',1,'DecTree::DecisionTree::DecisionTree()'],['../classDecTree_1_1DecisionTree.html#afd6a052b1620826158c3b177bec28058',1,'DecTree::DecisionTree::DecisionTree(const DecisionTree &amp;tree)'],['../classDecTree_1_1DecisionTree.html#a53bce94f1d87a61e1e7cb0efa0453531',1,'DecTree::DecisionTree::DecisionTree(DecisionTree &amp;&amp;tree)']]],
-  ['dectree',['DecTree',['../namespaceDecTree.html',1,'']]]
+  ['decisiontree',['DecisionTree',['../namespaceDecisionTree.html',1,'']]],
+  ['dectree',['DecTree',['../classDecisionTree_1_1DecTree.html#a0156434e8a54d69d5af982fee6c36b0a',1,'DecisionTree::DecTree::DecTree()'],['../classDecisionTree_1_1DecTree.html#acb70ec8c5bf9a0cb311868c690ee88d3',1,'DecisionTree::DecTree::DecTree(const DecTree &amp;tree)'],['../classDecisionTree_1_1DecTree.html#a3c6bcae1e0b6c7509fd9dfc938862680',1,'DecisionTree::DecTree::DecTree(DecTree &amp;&amp;tree)']]],
+  ['dectree',['DecTree',['../classDecisionTree_1_1DecTree.html',1,'DecisionTree']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fit',['fit',['../classDecTree_1_1DecisionTree.html#a064e8eae2e715975303b8ec500615087',1,'DecTree::DecisionTree']]]
+  ['fit',['fit',['../classDecisionTree_1_1DecTree.html#ad084621c6e9f37c9ca8cdcc37c78b6d2',1,'DecisionTree::DecTree']]]
 ];

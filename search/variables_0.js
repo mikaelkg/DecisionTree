@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['class_5f',['class_',['../structDecTree_1_1Node.html#a5672b50226c082533b41a48b31b9c26d',1,'DecTree::Node']]],
-  ['count_5fclasses',['count_classes',['../classDecTree_1_1DecisionTree.html#a6f974c6a7de2d9d95fa2a212e7e315bd',1,'DecTree::DecisionTree']]],
-  ['count_5ffeatures',['count_features',['../classDecTree_1_1DecisionTree.html#a26e9b58503502fbda0c4579c05ccc7b5',1,'DecTree::DecisionTree']]]
+  ['class_5f',['class_',['../structDecisionTree_1_1Node.html#a45e11c2ac0272e0b4c9287544e9bf04c',1,'DecisionTree::Node']]],
+  ['count_5fclasses',['count_classes',['../classDecisionTree_1_1DecTree.html#a911ada78cfb9a221714e914fbf7ad3a8',1,'DecisionTree::DecTree']]],
+  ['count_5ffeatures',['count_features',['../classDecisionTree_1_1DecTree.html#aea50d5f89fd76550912c0eaefb98f14e',1,'DecisionTree::DecTree']]]
 ];

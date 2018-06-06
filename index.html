@@ -79,47 +79,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">dectree Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a href="https://travis-ci.org/mikaelkg/BSTTree"></a> <a href="https://ci.appveyor.com/project/mikaelkg/bsttree"></a> </p><h1>BSTTree</h1>
-<p>Целью данного проекта является разработка программы для работы с двоичным деревом поиска (далее будем называть просто деревом) со следующим <a class="el" href="classTUI.html">TUI</a>: </p><h3>Select one of the following operations::</h3>
+<div class="textblock"><p><a href="https://travis-ci.org/mikaelkg/DecisionTree"></a> <a href="https://ci.appveyor.com/project/mikaelkg/decisiontree"></a> </p><h1><a class="el" href="namespaceDecisionTree.html">DecisionTree</a></h1>
+<p>Целью данного проекта является разработка программы для работы с бинарным деревом принятия решений со следующим <a class="el" href="classTUI.html">TUI</a>:</p>
+<h2>Select one of the following operations:</h2>
 <ol type="1">
-<li>Display the tree on the screen</li>
-<li>List the nodes of the tree a. Direct Bypass b. Transverse bypass c. Reverse bypass</li>
-<li>Add node to tree</li>
-<li>Delete a node from a tree</li>
-<li>Save the tree to a file</li>
-<li>Load tree from file</li>
-<li>Check the availability of the node</li>
+<li>Load data from a csv file Divide the data into training and test samples. Train decision tree on training data and test on test data <b>Enter path: Count features: Percent of train data:</b> &gt;a. Download the results to a file (file with comma delimiter, where first column is real class and second column is predicted class) b. Output the results on the screen</li>
+<li>Load data from csv file and predict class (possible only after training and the data format must match the data format on which the decision tree was trained) <b>Enter path: Count features:</b> &gt;a. Download the results to a file (file with comma delimiter, where first columns are features and last column is predicted class) b. Output the results on the screen</li>
+<li>Generate dot and png file for visual representation of decision tree <b>Enter path:</b></li>
 <li>Quit the program</li>
 </ol>
 <p>Этапы:</p><ol type="1">
-<li>:deciduous_tree: Реализовать обработку входных данных</li>
-<li>:deciduous_tree: Реализовать 1 пункт меню - вывод дерева в стандартный поток вывода</li>
-<li>:deciduous_tree: Реализовать 2 пункт меню - вывод списка узлов дерева в стандартный поток вывода с использованием указанного подхода</li>
-<li>:deciduous_tree: Реализовать 8 пункт меню - завершение работы программы</li>
-<li>:deciduous_tree:</li>
+<li>:deciduous_tree: Реализовать 1 пункт меню</li>
+<li>:deciduous_tree: Реализовать 2 пункт меню</li>
+<li>:deciduous_tree: Реализовать 3 и 4 пункт меню</li>
+<li>:deciduous_tree: Реализовать класс DecTree со следующим интерфейсом: <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;namespace DecisionTree {</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;   class DecTree {</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;       public:</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;           DecTree();</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;           DecTree(const DecTree&amp; tree);</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;           DecTree(DecTree&amp;&amp; tree);</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;           bool empty();</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;           void fit(std::vector &lt;std::vector &lt;double&gt;&gt; features,std::vector &lt;std::string&gt; classes);</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;           void visualiseTree(std::string path);</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;           std::vector &lt;std::string&gt; predict(std::vector &lt;std::vector &lt;double&gt;&gt; features);</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;           static double accuracy(std::vector &lt;std::string&gt; real_class,std::vector &lt;std::string&gt; predicted_class);</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;           static void splitData(std::vector &lt;std::vector &lt;double&gt;&gt; &amp;features,</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                                 std::vector &lt;std::string&gt; &amp;classes,</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                                 std::vector &lt;std::vector &lt;double&gt;&gt; &amp;train_X,</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                 std::vector &lt;std::string&gt; &amp;trainY,</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                 std::vector &lt;std::vector &lt;double&gt;&gt; &amp;test_X,</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                                 std::vector &lt;std::string&gt; &amp;test_Y,int percent_train);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;           auto operator=(const DecTree&amp; tree)-&gt;DecTree&amp;;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;           auto operator=(DecTree&amp;&amp; tree)-&gt;DecTree&amp;;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;           ~DecTree();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;       private:</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;           Node* root;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;   }</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div></div><!-- fragment --></li>
 </ol>
-<ul>
-<li>Реализовать 3 пункт меню - добавление узла в дерево.</li>
-<li>Реализовать 4 пункт меню - удаление узла из дерева</li>
-</ul>
-<ol type="1">
-<li>:deciduous_tree: Реализовать 5 пункт меню - сохранение дерева в файл</li>
-<li>:deciduous_tree:</li>
-</ol>
-<ul>
-<li>Реализовать 6 пункт меню - загрузка дерева из файла.</li>
-<li>Реализовать 7 пункт меню - проверка наличия узла</li>
-</ul>
-<ol type="1">
-<li>:deciduous_tree: Реализовать класс Tree со следующим интерфейсом: <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;namespace ${Type}Tree </div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;{</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  enum class traversal_order {pre, in, post};</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  class Tree {</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  public:</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    Tree();</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    Tree(std::initializer_list&lt;int&gt; list);</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    Tree(const Tree&amp; tree);</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    Tree(Tree&amp;&amp; tree);</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    bool insert(int value);</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    bool exists(int value);</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    bool remove(int value);</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    bool save(const string&amp; path);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    bool load(const string&amp; path);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    void print(traversal_order order);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    auto friend operator&lt;&lt;(ostream&amp; stream, const Tree&amp;) -&gt; ostream&amp; stream;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    auto operator=(const Tree&amp;) -&gt; Tree&amp;;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    auto operator=(Tree&amp;&amp;) -&gt; Tree&amp;;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    ~Tree();</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  private:</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Node* root;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  };</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div></div><!-- fragment --></li>
-</ol>
-<p>Документация: <a href="https://mikaelkg.github.io/BSTTree/index.html">:green_book:</a></p>
+<p>Документация: <a href="https://mikaelkg.github.io/DecisionTree/index.html">:green_book:</a></p>
 <p>Требования:</p><ol type="1">
-<li>:white_check_mark: Все функции по работе с деревом должны находиться в пространстве имен ${Type}Tree.</li>
+<li>:white_check_mark: Все функции по работе с деревом должны находиться в пространстве имен <a class="el" href="namespaceDecisionTree.html">DecisionTree</a>.</li>
 <li>:white_check_mark: Структура узла должна иметь определённый прототип.</li>
 <li>:white_check_mark: Класс дерева должна иметь определённый прототип.</li>
-<li>:white_check_mark: Файлы исходного кода должны располагаться на сервисе GitHub в открытом репозитории с названием ${Type}Tree.</li>
-<li>:white_check_mark: Репозиторий ${Type}Tree должен иметь определённую структуру</li>
+<li>:white_check_mark: Файлы исходного кода должны располагаться на сервисе GitHub в открытом репозитории с названием <a class="el" href="namespaceDecisionTree.html">DecisionTree</a>.</li>
+<li>:white_check_mark: Репозиторий <a class="el" href="namespaceDecisionTree.html">DecisionTree</a> должен иметь определённую структуру</li>
 <li>:white_check_mark: Код должен быть читабельным и оформлен в едином стиле. astyle</li>
 <li>:white_check_mark: Файлы исходного кода должны пройти проверку утилитой cpplint.</li>
 <li>:white_check_mark: Оформить <a class="el" href="README_8md.html">README.md</a> файл, содержащий описание проекта.</li>

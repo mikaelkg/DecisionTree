@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['visualisetree',['visualiseTree',['../classDecTree_1_1DecisionTree.html#ac6a81e612593c3053ad235d8bd6d172e',1,'DecTree::DecisionTree']]]
+  ['visualisetree',['visualiseTree',['../classDecisionTree_1_1DecTree.html#a0179f3aac28148d021648161d6ed37f9',1,'DecisionTree::DecTree']]]
 ];

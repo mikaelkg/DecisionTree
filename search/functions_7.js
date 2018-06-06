@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['minsplitginiindex',['minsplitGiniIndex',['../classDecTree_1_1DecisionTree.html#a43c73b4fb272ca4a9124b899ec3a0b11',1,'DecTree::DecisionTree']]]
+  ['minsplitginiindex',['minsplitGiniIndex',['../classDecisionTree_1_1DecTree.html#a0c7bc44348c34363d4b08533c0668ae5',1,'DecisionTree::DecTree']]]
 ];

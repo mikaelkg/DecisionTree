@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['threshold',['threshold',['../structDecTree_1_1Node.html#a9a41b1cf61b7c0abf340c1091d706257',1,'DecTree::Node']]]
+  ['threshold',['threshold',['../structDecisionTree_1_1Node.html#a59ebc5b4e61a07890228182c9fd53ecd',1,'DecisionTree::Node']]]
 ];

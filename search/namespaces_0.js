@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dectree',['DecTree',['../namespaceDecTree.html',1,'']]]
+  ['decisiontree',['DecisionTree',['../namespaceDecisionTree.html',1,'']]]
 ];

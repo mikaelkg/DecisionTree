@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gini_5findex',['gini_index',['../structDecTree_1_1Node.html#a616947e45d3abc4be94ec735f7973e76',1,'DecTree::Node']]]
+  ['gini_5findex',['gini_index',['../structDecisionTree_1_1Node.html#a36d69cff3cc9199397845bb5f283329d',1,'DecisionTree::Node']]]
 ];

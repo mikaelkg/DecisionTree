@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7edecisiontree',['~DecisionTree',['../classDecTree_1_1DecisionTree.html#a81056a8e66855da24a6db1521dad10df',1,'DecTree::DecisionTree']]]
+  ['_7edectree',['~DecTree',['../classDecisionTree_1_1DecTree.html#a75c9cf46a24e42ac98eb955465dbd2c1',1,'DecisionTree::DecTree']]]
 ];

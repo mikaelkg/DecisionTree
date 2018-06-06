@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['values',['values',['../structDecTree_1_1Node.html#a72d1474ab7da4cb0b2119d618b53281a',1,'DecTree::Node']]]
+  ['values',['values',['../structDecisionTree_1_1Node.html#a8cc3f1ac27c999af72fc1cc6472828ac',1,'DecisionTree::Node']]]
 ];
