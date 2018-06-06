@@ -3,14 +3,20 @@
 # DecisionTree
 Целью данного проекта является разработка программы для работы с бинарным деревом принятия решений (далее будем называть просто деревом) со следующим TUI:
 ### Select one of the following operations::
-1. Load data from a csv file
-   Divide the data into training and test samples.
-   Train decision tree on training data and test on test data
-2. Load data from csv file and predict class
-  (possible only after training and the data format must match
-   the data format on which the decision tree was trained)
-3. Generate dot and file for visual representation of decision tree
-4. Quit the program
+1. Load data from a csv file  
+   Divide the data into training and test samples.  
+   Train decision tree on training data and test on test data  
+*Enter path:*  
+*Count features:*  
+*Percent of train data:*  
+2. Load data from csv file and predict class  
+  (possible only after training and the data format must match  
+   the data format on which the decision tree was trained)  
+*Enter path:*  
+*Count features:*  
+3. Generate dot and file for visual representation of decision tree  
+*Enter path:*  
+4. Quit the program  
 
 
 Этапы:
