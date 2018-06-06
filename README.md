@@ -19,7 +19,7 @@ b. Output the results on the screen**
    the data format on which the decision tree was trained)  
 **Enter path:**  
 **Count features:**  
-3. Generate dot and file for visual representation of decision tree  
+3. Generate dot and png file for visual representation of decision tree  
 **Enter path:**  
 4. Quit the program  
 
