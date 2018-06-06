@@ -8,7 +8,7 @@
    Train decision tree on training data and test on test data  
 **Enter path:  
 Count features:  
-Percent of train data:**  
+Percent of train data:**
 
 a. Download the results to a file  
   (file with comma delimiter,  
