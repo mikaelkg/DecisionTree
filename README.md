@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/mikaelkg/DecisionTree.svg?branch=develop)](https://travis-ci.org/mikaelkg/DecisionTree)
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/mikaelkg/bsttree)](https://ci.appveyor.com/project/mikaelkg/decisiontree) 
+[![Build status](https://ci.appveyor.com/api/projects/status/hyshb1mgnf2jbc5b?svg=true)](https://ci.appveyor.com/project/mikaelkg/decisiontree)
 # DecisionTree
 Целью данного проекта является разработка программы для работы с бинарным деревом принятия решений со следующим TUI:
 
