@@ -6,9 +6,9 @@
 1. Load data from a csv file  
    Divide the data into training and test samples.  
    Train decision tree on training data and test on test data  
-**Enter path:**  
-**Count features:**  
-**Percent of train data:  **      
+**Enter path:  
+Count features:  
+Percent of train data:**      
 **a. Download the results to a file  
   (file with comma delimiter,  
    where first column is real class  
