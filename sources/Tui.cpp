@@ -90,7 +90,7 @@ int TUI::choose_operation() {
             <<"2. Load data from csv file and predict class\n"\
               "  (possible only after training and the data format must match\n"\
               "   the data format on which the decision tree was trained)\n"\
-            <<"3. Generate dot and file for visual representation of decision tree\n"\
+            <<"3. Generate dot and png file for visual representation of decision tree\n"\
             <<"4. Quit the program\n";
 
     std::cin >> choice;
@@ -145,8 +145,8 @@ bool TUI::sub_choose_predict(std::vector <std::vector <double>> &features_to_pre
     std::string path;
     std::cout << "a. Download the results to a file\n"\
                  "   (csv file with comma delimiter,\n"\
-                 "    where first column is real class\n"\
-                 "    and second column is predicted class)\n"\
+                 "    where first columns are features\n"\
+                 "    and last column is a predicted class)\n"\
               << "b. Output the results on the screen\n";
     std::cin >> decision;
 

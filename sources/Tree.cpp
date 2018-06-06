@@ -1,7 +1,7 @@
 /* Copyright 2018 Khachatryan M. G., Chepic P. I. */
 #include "Tree.hpp"
 
-namespace DecTree {
+namespace DecisionTree {
 Node::Node(std::vector <std::vector <double>> features,std::vector <int> classes,
            int count_classes, std::map <int,std::string> reverse_dict) {
     X = features;
@@ -23,7 +23,7 @@ std::vector <int> Node::count_in_class(std::vector <int> classes,int count_class
     }
     return answer;
 }
-void DecisionTree::splitData(std::vector <std::vector <double>> &features,
+void DecTree::splitData(std::vector <std::vector <double>> &features,
                              std::vector <std::string> &classes,
                              std::vector <std::vector <double>> &train_X,
                              std::vector <std::string> &train_Y,
@@ -58,10 +58,10 @@ double Node::gini_index(std::vector <int> values) {
     }
     return answer;
 }
-DecisionTree::DecisionTree() {
+DecTree::DecTree() {
     this->root = 0;
 }
-void DecisionTree::fit(std::vector <std::vector <double>> features,std::vector <std::string> classes) {
+void DecTree::fit(std::vector <std::vector <double>> features,std::vector <std::string> classes) {
     cleanup(this->root);
 
     std::set <std::string> s;
@@ -84,14 +84,14 @@ void DecisionTree::fit(std::vector <std::vector <double>> features,std::vector <
     this->root = new Node(features,int_classes,this->count_classes,this->reverse_dict);
     splitNode(this->root);
 }
-std::vector <std::string> DecisionTree::predict(std::vector <std::vector <double>> features) {
+std::vector <std::string> DecTree::predict(std::vector <std::vector <double>> features) {
     std::vector <std::string> answer;
     for (auto i: features) {
         answer.push_back(helpPredict(this->root, i));
     }
     return answer;
 }
-std::string DecisionTree::helpPredict(Node* root, std::vector <double> feature) {
+std::string DecTree::helpPredict(Node* root, std::vector <double> feature) {
     if (root->feature_choose == -1) {
         return root->class_;
     } else if (feature[root->feature_choose] <= root->threshold) {
@@ -101,7 +101,7 @@ std::string DecisionTree::helpPredict(Node* root, std::vector <double> feature) 
     }
 
 }
-void DecisionTree::visualiseTree(std::string path) {
+void DecTree::visualiseTree(std::string path) {
     std::string digraph = "";
     digraph += "digraph Tree {\n";
     digraph += "node [shape=box] ;\n";
@@ -114,9 +114,12 @@ void DecisionTree::visualiseTree(std::string path) {
     std::string command = fmt::format("dot -Tpng {0}.dot -o {0}.png",path);
     system(command.c_str());
 }
-std::string DecisionTree::helpVisuliseTree(Node* root) {
-    static int depth = -1;
+std::string DecTree::helpVisuliseTree(Node* root) {
+    static int depth;
     static std::vector <int> distance;
+    if (distance.size() == 0) {
+	depth = -1;
+    }
     depth ++;
     std::string vec_string = "[ ";
 
@@ -153,7 +156,7 @@ std::string DecisionTree::helpVisuliseTree(Node* root) {
 
     return out;
 }
-void DecisionTree::splitNode(Node* root) {
+void DecTree::splitNode(Node* root) {
     if (root->gini != 0) {
         std::map <std::string, double> dict = minsplitGiniIndex(root->X,root->Y,0);
         std::map <std::string, double> dict_new = dict;
@@ -192,7 +195,7 @@ void DecisionTree::splitNode(Node* root) {
         }
     }
 }
-std::pair <double,bool> DecisionTree::splitGiniIndex(std::vector <std::vector <double>> features,
+std::pair <double,bool> DecTree::splitGiniIndex(std::vector <std::vector <double>> features,
                                     std::vector <int> classes, int feature_choose,
                                     double threashold) {
     std::vector <int> left_classes(this->count_classes);
@@ -232,7 +235,7 @@ std::pair <double,bool> DecisionTree::splitGiniIndex(std::vector <std::vector <d
     return std::make_pair(left_answer + right_answer,notDevidedFlag);
 }
 
-std::map <std::string, double> DecisionTree::minsplitGiniIndex(std::vector <std::vector <double>> features,
+std::map <std::string, double> DecTree::minsplitGiniIndex(std::vector <std::vector <double>> features,
                                        std::vector <int> classes, int feature_choose) {
         std::pair <double,bool> gini_and_flag;
         gini_and_flag = splitGiniIndex(features, classes, feature_choose, features[0][feature_choose]);
@@ -255,10 +258,10 @@ std::map <std::string, double> DecisionTree::minsplitGiniIndex(std::vector <std:
         }
         return dict;
 }
-DecisionTree::~DecisionTree() {
+DecTree::~DecTree() {
     cleanup(this->root);
 }
-void DecisionTree::cleanup (Node* root) {
+void DecTree::cleanup (Node* root) {
     if(root == 0) return;
     if(root->left != 0) {
         cleanup(root->left);
@@ -270,7 +273,7 @@ void DecisionTree::cleanup (Node* root) {
     }
     delete root;
 }
-double DecisionTree::accuracy(std::vector <std::string> real_class,std::vector <std::string> predicted_class) {
+double DecTree::accuracy(std::vector <std::string> real_class,std::vector <std::string> predicted_class) {
     int correct = 0;
     int wrong = 0;
     for (int i = 0; i < real_class.size(); i++) {
@@ -282,7 +285,7 @@ double DecisionTree::accuracy(std::vector <std::string> real_class,std::vector <
     }
     return (double) correct / (correct + wrong);
 }
-bool DecisionTree::empty() {
+bool DecTree::empty() {
     return (this->root == 0);
 }
 Node::Node(Node* root) {
@@ -296,22 +299,22 @@ Node::Node(Node* root) {
     left = nullptr;
     right = nullptr;
 };
-void DecisionTree::pre_order(Node* root, Node* &root_copy) {
+void DecTree::pre_order(Node* root, Node* &root_copy) {
     if (root == 0)    return;
     root_copy = new Node(root);
     pre_order(root->left, root_copy->left);
     pre_order(root->right, root_copy->right);
 };
-DecisionTree::DecisionTree(const DecisionTree& tree) {
+DecTree::DecTree(const DecTree& tree) {
 
     pre_order(tree.root,this->root);
     //std::cout << this->root->gini;
 }
-DecisionTree::DecisionTree(DecisionTree&& tree) {
+DecTree::DecTree(DecTree&& tree) {
     this->root = tree.root;
     tree.root = nullptr;
 }
-auto DecisionTree::operator=(const DecisionTree &tree)->DecisionTree& {
+auto DecTree::operator=(const DecTree &tree)->DecTree& {
     if (this != &tree) {
         cleanup(this->root);
         this->root = 0;
@@ -319,12 +322,12 @@ auto DecisionTree::operator=(const DecisionTree &tree)->DecisionTree& {
     }
     return *this;
 }
-auto DecisionTree::operator=(DecisionTree&& tree)->DecisionTree& {
+auto DecTree::operator=(DecTree&& tree)->DecTree& {
     this->root = tree.root;
     tree.root = nullptr;
     return *this;
 }
-} // namespace DecTree
+} // namespace DecisionTree
 
 
 

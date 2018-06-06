@@ -14,12 +14,12 @@
 #include <random>
 #include <stdlib.h>
 
-namespace DecTree {
+namespace DecisionTree {
 struct Node {
     std::vector <std::vector <double>> X;
     std::vector <int> Y;
     std::vector <int> values;
-    double threshold = -1000;
+    double threshold;
     int feature_choose = -1;
     double gini;
     std::string class_;
@@ -35,15 +35,15 @@ struct Node {
 
 };
 
-class DecisionTree
+class DecTree
 {
     public:
 	//!Стандартный конструктор
-        DecisionTree();
+        DecTree();
 	//!Конструктор копирования
-        explicit DecisionTree(const DecisionTree& tree);
+        explicit DecTree(const DecTree& tree);
 	//!Конструктор перемещения
-        explicit DecisionTree(DecisionTree&& tree);
+        explicit DecTree(DecTree&& tree);
 	//!Метод для определения, пустое ли дерево
         bool empty();
 	//!Обучение дерева
@@ -62,11 +62,11 @@ class DecisionTree
                               std::vector <std::vector <double>> &test_X,
                               std::vector <std::string> &test_Y,int percent_train);
 	//!Оператор присваивания для копирования
-        auto operator=(const DecisionTree& tree)->DecisionTree&;
+        auto operator=(const DecTree& tree)->DecTree&;
 	//!Оператор присваивани для перемещения
-        auto operator=(DecisionTree&& tree)->DecisionTree&;
+        auto operator=(DecTree&& tree)->DecTree&;
 	//!Деструктор
-        ~DecisionTree();
+        ~DecTree();
 
     private:
 	//!Количество классов участвоваших в обучении
@@ -76,7 +76,7 @@ class DecisionTree
 	//!Словарь для перевода из чисел обратно в названия классов
         std::map <int,std::string> reverse_dict;
 	//!Корень дерева
-        Node* root = 0;
+        Node* root;
 	//!Вспомогательная функция для predict
         std::string helpPredict(Node* root, std::vector <double> feature);
 	//!Разделение узлов по наиболее эффективному порогу

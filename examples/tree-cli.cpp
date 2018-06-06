@@ -1,13 +1,13 @@
 /* Copyright 2018 Khachatryan M. G., Chepic P. I. */
 #include "Tui.hpp"
 #include "Tree.hpp"
-using namespace DecTree;
+using namespace DecisionTree;
 
 
 int main() {
 
      int count_features;
-     DecisionTree* obj = new DecisionTree();
+     DecTree* obj = new DecTree();
      std::vector <std::vector <double>> features;
      std::vector <std::string> classes;
 
@@ -48,10 +48,10 @@ int main() {
                         break;
                     }
                     std::vector <std::string> predicted;
-                    DecisionTree::splitData(features,classes,train_X,train_Y,test_X,test_Y,percent);
+                    DecTree::splitData(features,classes,train_X,train_Y,test_X,test_Y,percent);
                     obj->fit(train_X,train_Y);
                     predicted = obj->predict(test_X);
-                    double accuracy = DecisionTree::accuracy(test_Y,predicted);
+                    double accuracy = DecTree::accuracy(test_Y,predicted);
                     if (!TUI::sub_choose_test(test_Y,predicted,accuracy)) {
                         std::cout << "Wrong option!\n";
                     }
