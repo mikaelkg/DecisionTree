@@ -128,16 +128,20 @@ bool TUI::sub_choose_test(std::vector <std::string> &real_class,std::vector <std
             printf("Accuracy: %.2f%%\n",100*accuracy);
         }
     } else if (decision == 'b') {
-        printf("%-30s %s","Real class","Predicted class\n");
-
-        for (int i = 0; i < predicted_class.size(); i++) {
-            printf("%-30s %s\n",real_class[i].c_str(),predicted_class[i].c_str());
-        }
-        printf("Accuracy: %.2f%%\n",100*accuracy);
+        print(real_class,predicted_class,accuracy);
         return true;
     } else {
         return false;
     }
+}
+void TUI::print(std::vector <std::string> &real_class,std::vector <std::string> &predicted_class,
+                double accuracy) {
+    printf("%-30s %s","Real class","Predicted class\n");
+
+    for (int i = 0; i < predicted_class.size(); i++) {
+        printf("%-30s %s\n",real_class[i].c_str(),predicted_class[i].c_str());
+    }
+    printf("Accuracy: %.2f%%\n",100*accuracy);
 }
 bool TUI::sub_choose_predict(std::vector <std::vector <double>> &features_to_predict,
                              std::vector <std::string> &predicted_class) {
@@ -169,19 +173,23 @@ bool TUI::sub_choose_predict(std::vector <std::vector <double>> &features_to_pre
             TUI::CSVWriter(features_to_predict,predicted_class,path);
         }
     } else if (decision == 'b') {
-        for (int i = 0; i < features_to_predict[0].size(); i++) {
-            printf("%s%-3i","Feature",i+1);
-        }
-            printf("%-10s\n","Class");
-        for (int i = 0; i < predicted_class.size(); i++) {
-            for (int j = 0; j < features_to_predict[0].size(); j++) {
-                printf("%-10.2f",features_to_predict[i][j]);
-            }
-            printf("%s\n",predicted_class[i].c_str());
-        }
+	print(features_to_predict,predicted_class);
         return true;
     } else {
         return false;
+    }
+}
+void TUI::print(std::vector <std::vector <double>> &features_to_predict,
+                             std::vector <std::string> &predicted_class) {
+    for (int i = 0; i < features_to_predict[0].size(); i++) {
+        printf("%s%-3i","Feature",i+1);
+    }
+        printf("%-10s\n","Class");
+    for (int i = 0; i < predicted_class.size(); i++) {
+        for (int j = 0; j < features_to_predict[0].size(); j++) {
+            printf("%-10.2f",features_to_predict[i][j]);
+        }
+        printf("%s\n",predicted_class[i].c_str());
     }
 }
 bool TUI::exist_file(std::string path) {

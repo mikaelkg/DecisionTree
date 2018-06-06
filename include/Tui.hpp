@@ -20,6 +20,10 @@ class TUI
                           std::string path);
     static bool CSVWriter(std::vector <std::vector <double>> features_to_predict,std::vector <std::string> predicted_class,
                           std::string path);
+    static void print(std::vector <std::string> &real_class,std::vector <std::string> &predicted_class,
+                      double accuracy);
+    static void print(std::vector <std::vector <double>> &features_to_predict,
+                             std::vector <std::string> &predicted_class);
     static bool exist_file(std::string path);
     static bool sub_choose_test(std::vector <std::string> &real_class,std::vector <std::string> &predicted_class,
                                 double accuracy);

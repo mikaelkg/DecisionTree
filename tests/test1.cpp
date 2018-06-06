@@ -23,10 +23,11 @@ TEST_CASE("Test program", "[file]") {
      DecTree obj2(*obj);
      predicted = obj2.predict(test_X);
      double accuracy = DecTree::accuracy(test_Y,predicted);
+     TUI::CSVWriter(test_Y,predicted,"../artifacts/real_predicted.csv");
+     TUI::print(test_Y,predicted,accuracy);
      DecTree obj3;
      obj3 = obj2;
      obj3.visualiseTree("../artifacts/VisualTree_4feature");
-
 
      features.clear();
      classes.clear();
@@ -46,7 +47,13 @@ TEST_CASE("Test program", "[file]") {
      obj4->visualiseTree("../artifacts/VisualTree_2feature");
      DecTree obj5(std::move(*obj4));
      REQUIRE(obj4->empty());
+
      DecTree obj6;
      obj6 = std::move(obj3);
-     REQUIRE(obj3.empty()); 
+     REQUIRE(obj3.empty());
+     TUI::CSVReader(features_to_predict,4,"iris_df_test.csv");
+     predicted = obj6.predict(features_to_predict);
+     TUI::CSVWriter(features_to_predict,predicted,"../artifacts/predict_results.csv");
+     TUI::print(features_to_predict,predicted);
+    
 }
