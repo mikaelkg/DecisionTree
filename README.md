@@ -6,16 +6,16 @@
 1. Load data from a csv file  
    Divide the data into training and test samples.  
    Train decision tree on training data and test on test data  
-**Enter path:  
+**Enter path:**  
 **Count features:**  
 **Percent of train data:**  
 2. Load data from csv file and predict class  
    (possible only after training and the data format must match  
    the data format on which the decision tree was trained)  
-*Enter path:*  
-*Count features:*  
+**Enter path:**  
+**Count features:**  
 3. Generate dot and file for visual representation of decision tree  
-*Enter path:*  
+**Enter path:**  
 4. Quit the program  
 
 
