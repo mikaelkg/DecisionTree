@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/mikaelkg/DecisionTree.svg?branch=develop)](https://travis-ci.org/mikaelkg/DecisionTree)
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/mikaelkg/bsttree)](https://ci.appveyor.com/project/mikaelkg/decisiontree) 
 # DecisionTree
-Целью данного проекта является разработка программы для работы с бинарным деревом принятия решений (далее будем называть просто деревом) со следующим TUI:
+Целью данного проекта является разработка программы для работы с бинарным деревом принятия решений со следующим TUI:
 
 ## Select one of the following operations:  
 1. Load data from a csv file  
@@ -42,8 +42,8 @@ namespace DecisionTree {
    class DecTree {
        public:
            DecTree();
-           explicit DecTree(const DecisionTree& tree);
-           explicit DecTree(DecisionTree&& tree);
+           DecTree(const DecTree& tree);
+           DecTree(DecTree&& tree);
            bool empty();
            void fit(std::vector <std::vector <double>> features,std::vector <std::string> classes);
            void visualiseTree(std::string path);
@@ -73,7 +73,7 @@ namespace DecisionTree {
 2. :white_check_mark: Структура узла должна иметь определённый прототип.
 3. :white_check_mark: Класс дерева должна иметь определённый прототип.
 4. :white_check_mark: Файлы исходного кода должны располагаться на сервисе GitHub
-в открытом репозитории с названием DecisionTreeTree.
+в открытом репозитории с названием DecisionTree.
 5. :white_check_mark: Репозиторий DecisionTree должен иметь определённую структуру
 6. :white_check_mark: Код должен быть читабельным и оформлен в едином стиле.
 astyle
