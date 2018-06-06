@@ -9,7 +9,8 @@
 **Enter path:  
 Count features:  
 Percent of train data:**  
-       a. Download the results to a file  
+
+a. Download the results to a file  
   (file with comma delimiter,  
    where first column is real class  
    and second column is predicted class)  
