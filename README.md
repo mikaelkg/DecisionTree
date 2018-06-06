@@ -19,16 +19,17 @@ b. Output the results on the screen
 2. Load data from csv file and predict class  
    (possible only after training and the data format must match  
    the data format on which the decision tree was trained)  
-Enter path:
-Count features:  
-a. Download the results to a file  
+**Enter path:
+Count features:**  
+>a. Download the results to a file  
   (file with comma delimiter,  
    where first columns are features  
    and last column is predicted class)  
 b. Output the results on the screen 
-3\. Generate dot and png file for visual representation of decision tree  
-Enter path:  
-4\. Quit the program  
+
+3. Generate dot and png file for visual representation of decision tree  
+**Enter path:**  
+4. Quit the program  
 
 
 Этапы:
