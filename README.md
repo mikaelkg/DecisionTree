@@ -3,12 +3,11 @@
 # DecisionTree
 Целью данного проекта является разработка программы для работы с бинарным деревом принятия решений (далее будем называть просто деревом) со следующим TUI:
 ### Select one of the following operations::
-Some Markdown text with <span style="color:blue">some *blue* text</span>.
 1. Load data from a csv file  
    Divide the data into training and test samples.  
    Train decision tree on training data and test on test data  
-<span style="color:blue">*Enter path:*  
-*Count features:*</span>  
+*Enter path:*  
+*Count features:*  
 *Percent of train data:*  
 2. Load data from csv file and predict class  
    (possible only after training and the data format must match  
