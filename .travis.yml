@@ -15,14 +15,20 @@ script:
 
 # Генерация документации
 after_success:
-  - git clone -b develop https://github.com/mikaelkg/DecisionTree
-  - cd DecisionTree
-  - doxygen docs/doxygen.conf
-  - ls | grep "[^docs]" | xargs rm -rf
-  - mv docs/html/* . && rm -rf docs
-  - git add .
-  - git commit -m "documentation"
-  - git push origin gh-pages
+- git clone -b gh-pages https://github.com/mikaelkg/DecisionTree
+- cd DecisionTree
+- git config --global push.default simple
+- git config user.name "Travis CI"
+- git config user.email "travis@travis-ci.org"
+- git clone -b develop https://github.com/mikaelkg/DecisionTree
+- mv DecisionTree/* ./
+- doxygen docs/doxygen.conf
+- ls | grep "[^docs]" | xargs rm -rf
+- mv docs/html/* . && rm -rf docs
+- git add .
+- git commit -m "documentation"
+- git push --force "https://${GH_REPO_TOKEN}@github.com/mikaelkg/DecisionTree.git" > /dev/null 2>&1 
+
 addons:
   apt:
     sources:
