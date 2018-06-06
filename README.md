@@ -5,7 +5,7 @@
 
 Select one of the following operations:  
 1\. Load data from a csv file  
-   Divide the data into training and test samples.  
+   > Divide the data into training and test samples.  
    Train decision tree on training data and test on test data  
 Enter path:  
 Count features:  
