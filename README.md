@@ -3,7 +3,7 @@
 # DecisionTree
 Целью данного проекта является разработка программы для работы с бинарным деревом принятия решений (далее будем называть просто деревом) со следующим TUI:
 ### Select one of the following operations::
-1. Load data from a csv file  
+\1. Load data from a csv file  
    Divide the data into training and test samples.  
    Train decision tree on training data and test on test data  
 **Enter path:  
