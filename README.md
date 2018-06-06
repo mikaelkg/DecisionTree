@@ -33,46 +33,42 @@ b. Output the results on the screen
 
 
 Этапы:
-1. :deciduous_tree: Реализовать обработку входных данных
-2. :deciduous_tree: Реализовать 1 пункт меню - вывод дерева в стандартный поток вывода
-3. :deciduous_tree: Реализовать 2 пункт меню - вывод списка узлов дерева в стандартный 
-                    поток вывода с использованием указанного подхода
-4. :deciduous_tree: Реализовать 8 пункт меню - завершение работы программы
-5. :deciduous_tree: 
-- Реализовать 3 пункт меню - добавление узла в дерево. 
-- Реализовать 4 пункт меню - удаление узла из дерева
-6. :deciduous_tree: Реализовать 5 пункт меню - сохранение дерева в файл
-7. :deciduous_tree: 
-- Реализовать 6 пункт меню - загрузка дерева из файла. 
-- Реализовать 7 пункт меню - проверка наличия узла
-8. :deciduous_tree: Реализовать класс Tree со следующим интерфейсом:
+1. :deciduous_tree: Реализовать 1 пункт меню
+2. :deciduous_tree: Реализовать 2 пункт меню
+3. :deciduous_tree: Реализовать 3 и 4 пункт меню
+4. :deciduous_tree: Реализовать класс DecisionTree со следующим интерфейсом:
 ```сpp
-namespace ${Type}Tree 
+namespace DecTree 
 {
-  enum class traversal_order {pre, in, post};
-  class Tree {
-  public:
-    Tree();
-    Tree(std::initializer_list<int> list);
-    Tree(const Tree& tree);
-    Tree(Tree&& tree);
-    bool insert(int value);
-    bool exists(int value);
-    bool remove(int value);
-    bool save(const string& path);
-    bool load(const string& path);
-    void print(traversal_order order);
-    auto friend operator<<(ostream& stream, const Tree&) -> ostream& stream;
-    auto operator=(const Tree&) -> Tree&;
-    auto operator=(Tree&&) -> Tree&;
-    ~Tree();
-  private:
-    Node* root;
-  };
+class DecisionTree
+   {
+       public:
+           DecisionTree();
+           explicit DecisionTree(const DecisionTree& tree);
+           explicit DecisionTree(DecisionTree&& tree);
+           bool empty();
+           void fit(std::vector <std::vector <double>> features,std::vector <std::string> classes);
+           void visualiseTree(std::string path);
+           std::vector <std::string> predict(std::vector <std::vector <double>> features);
+           static double accuracy(std::vector <std::string> real_class,std::vector <std::string> predicted_class);
+           static void splitData(std::vector <std::vector <double>> &features,
+                                 std::vector <std::string> &classes,
+                                 std::vector <std::vector <double>> &train_X,
+                                 std::vector <std::string> &trainY,
+                                 std::vector <std::vector <double>> &test_X,
+                                 std::vector <std::string> &test_Y,int percent_train);
+           auto operator=(const DecisionTree& tree)->DecisionTree&;
+           auto operator=(DecisionTree&& tree)->DecisionTree&;
+           //void DecisionMap(std::vector <std::vector <double>> features,std::vector <int> classes);
+           ~DecisionTree();
+
+       private:
+           Node* root;
+   }
 }
 ```
 
-Документация: [:green_book:](https://mikaelkg.github.io/BSTTree/index.html)
+Документация: [:green_book:](https://mikaelkg.github.io/DecisionTree/index.html)
 
 Требования:
 1. :white_check_mark: Все функции по работе с деревом должны находиться в
