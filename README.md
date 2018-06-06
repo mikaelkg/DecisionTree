@@ -36,16 +36,14 @@ b. Output the results on the screen
 1. :deciduous_tree: Реализовать 1 пункт меню
 2. :deciduous_tree: Реализовать 2 пункт меню
 3. :deciduous_tree: Реализовать 3 и 4 пункт меню
-4. :deciduous_tree: Реализовать класс DecisionTree со следующим интерфейсом:
+4. :deciduous_tree: Реализовать класс DecTree со следующим интерфейсом:
 ```сpp
-namespace DecTree 
-{
-class DecisionTree
-   {
+namespace DecisionTree {
+   class DecTree {
        public:
-           DecisionTree();
-           explicit DecisionTree(const DecisionTree& tree);
-           explicit DecisionTree(DecisionTree&& tree);
+           DecTree();
+           explicit DecTree(const DecisionTree& tree);
+           explicit DecTree(DecisionTree&& tree);
            bool empty();
            void fit(std::vector <std::vector <double>> features,std::vector <std::string> classes);
            void visualiseTree(std::string path);
@@ -57,10 +55,9 @@ class DecisionTree
                                  std::vector <std::string> &trainY,
                                  std::vector <std::vector <double>> &test_X,
                                  std::vector <std::string> &test_Y,int percent_train);
-           auto operator=(const DecisionTree& tree)->DecisionTree&;
-           auto operator=(DecisionTree&& tree)->DecisionTree&;
-           //void DecisionMap(std::vector <std::vector <double>> features,std::vector <int> classes);
-           ~DecisionTree();
+           auto operator=(const DecTree& tree)->DecTree&;
+           auto operator=(DecTree&& tree)->DecTree&;
+           ~DecTree();
 
        private:
            Node* root;
@@ -72,12 +69,12 @@ class DecisionTree
 
 Требования:
 1. :white_check_mark: Все функции по работе с деревом должны находиться в
-пространстве имен ${Type}Tree.
+пространстве имен DecisionTree.
 2. :white_check_mark: Структура узла должна иметь определённый прототип.
 3. :white_check_mark: Класс дерева должна иметь определённый прототип.
 4. :white_check_mark: Файлы исходного кода должны располагаться на сервисе GitHub
-в открытом репозитории с названием ${Type}Tree.
-5. :white_check_mark: Репозиторий ${Type}Tree должен иметь определённую структуру
+в открытом репозитории с названием DecisionTreeTree.
+5. :white_check_mark: Репозиторий DecisionTree должен иметь определённую структуру
 6. :white_check_mark: Код должен быть читабельным и оформлен в едином стиле.
 astyle
 7. :white_check_mark: Файлы исходного кода должны пройти проверку утилитой
