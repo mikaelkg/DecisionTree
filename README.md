@@ -15,7 +15,9 @@ a. Download the results to a file
    where first column is real class  
    and second column is predicted class)  
 b. Output the results on the screen
+
 <p style="text-indent:100px"> HTML отступ текста, работает стиль CSS - text-indent </p>  
+
 2. Load data from csv file and predict class  
    (possible only after training and the data format must match  
    the data format on which the decision tree was trained)  
