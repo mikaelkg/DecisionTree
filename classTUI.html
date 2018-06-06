@@ -105,6 +105,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aa341e7e84246e3ebf237b68a3797b68b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af45308022989bcbea34f2768b9b2e21f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTUI.html#af45308022989bcbea34f2768b9b2e21f">CSVWriter</a> (std::vector&lt; std::vector&lt; double &gt;&gt; features_to_predict, std::vector&lt; std::string &gt; predicted_class, std::string path)</td></tr>
 <tr class="separator:af45308022989bcbea34f2768b9b2e21f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d3fc1e9806dbc4b418d4223f8d81030"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTUI.html#a2d3fc1e9806dbc4b418d4223f8d81030">print</a> (std::vector&lt; std::string &gt; &amp;real_class, std::vector&lt; std::string &gt; &amp;predicted_class, double accuracy)</td></tr>
+<tr class="separator:a2d3fc1e9806dbc4b418d4223f8d81030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4acf4e7bc9d914849e0b3d3dce6b1b22"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTUI.html#a4acf4e7bc9d914849e0b3d3dce6b1b22">print</a> (std::vector&lt; std::vector&lt; double &gt;&gt; &amp;features_to_predict, std::vector&lt; std::string &gt; &amp;predicted_class)</td></tr>
+<tr class="separator:a4acf4e7bc9d914849e0b3d3dce6b1b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a675d30b191ce282026d0ba5e5455f2"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTUI.html#a0a675d30b191ce282026d0ba5e5455f2">exist_file</a> (std::string path)</td></tr>
 <tr class="separator:a0a675d30b191ce282026d0ba5e5455f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ddda9ebdbc6d4c441d8d32bef2c162b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTUI.html#a2ddda9ebdbc6d4c441d8d32bef2c162b">sub_choose_test</a> (std::vector&lt; std::string &gt; &amp;real_class, std::vector&lt; std::string &gt; &amp;predicted_class, double accuracy)</td></tr>
@@ -351,6 +355,80 @@ Static Private Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">std::vector&lt; int &gt;&#160;</td>
           <td class="paramname"><em>indexes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2d3fc1e9806dbc4b418d4223f8d81030"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void TUI::print </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>real_class</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>predicted_class</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>accuracy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4acf4e7bc9d914849e0b3d3dce6b1b22"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void TUI::print </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; double &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>features_to_predict</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>predicted_class</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
