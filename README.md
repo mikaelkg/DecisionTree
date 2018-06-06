@@ -1,19 +1,16 @@
 [![Build Status](https://travis-ci.org/mikaelkg/DecisionTree.svg?branch=develop)](https://travis-ci.org/mikaelkg/DecisionTree)
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/mikaelkg/bsttree)](https://ci.appveyor.com/project/mikaelkg/decisiontree) 
 # DecisionTree
-Целью данного проекта является разработка программы для работы с двоичным деревом поиска (далее будем называть просто деревом) со следующим TUI:
+Целью данного проекта является разработка программы для работы с бинарным деревом принятия решений (далее будем называть просто деревом) со следующим TUI:
 ### Select one of the following operations::
-1. Display the tree on the screen
-2. List the nodes of the tree
-   a. Direct Bypass
-   b. Transverse bypass
-   c. Reverse bypass
-3. Add node to tree
-4. Delete a node from a tree
-5. Save the tree to a file
-6. Load tree from file
-7. Check the availability of the node
-8. Quit the program
+1. Load data from a csv file
+   Divide the data into training and test samples.
+   Train decision tree on training data and test on test data
+2. Load data from csv file and predict class
+  (possible only after training and the data format must match
+   the data format on which the decision tree was trained)
+3. Generate dot and file for visual representation of decision tree
+4. Quit the program
 
 
 Этапы:
