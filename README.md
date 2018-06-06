@@ -19,7 +19,7 @@ b. Output the results on the screen
 2. Load data from csv file and predict class  
    (possible only after training and the data format must match  
    the data format on which the decision tree was trained)  
-**Enter path:
+**Enter path:  
 Count features:**  
 >a. Download the results to a file  
   (file with comma delimiter,  
