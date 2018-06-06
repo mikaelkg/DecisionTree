@@ -1,4 +1,9 @@
-language: cpp
+language: app
+
+branches:
+  only:
+    - master
+    - develop
 
 script:
 - cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Coverage -DCPACK_GENERATOR="TGZ"
@@ -7,6 +12,17 @@ script:
 - cmake --build _build --target install
 - cmake --build _build --target unit_tests_coverage 
 - cmake --build _build --target package
+
+# Генерация документации
+after_success:
+  - git clone -b develop https://github.com/mikaelkg/DecisionTree
+  - cd DecisionTree
+  - doxygen docs/doxygen.conf
+  - ls | grep "[^docs]" | xargs rm -rf
+  - mv docs/html/* . && rm -rf docs
+  - git add .
+  - git commit -m "documentation"
+  - git push origin gh-pages
 addons:
   apt:
     sources:
@@ -16,3 +32,7 @@ addons:
       - cmake-data
       - lcov
       - graphviz
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
