@@ -2,8 +2,8 @@
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/mikaelkg/bsttree)](https://ci.appveyor.com/project/mikaelkg/decisiontree) 
 # DecisionTree
 Целью данного проекта является разработка программы для работы с бинарным деревом принятия решений (далее будем называть просто деревом) со следующим TUI:
-```
-Select one of the following operations::
+
+Select one of the following operations:
 1. Load data from a csv file  
    Divide the data into training and test samples.  
    Train decision tree on training data and test on test data  
@@ -28,7 +28,7 @@ b. Output the results on the screen
 3. Generate dot and png file for visual representation of decision tree  
 Enter path:  
 4. Quit the program  
-```
+
 
 Этапы:
 1. :deciduous_tree: Реализовать обработку входных данных
